@@ -40,7 +40,6 @@ import 'package:flutter/material.dart';
 import 'ClipPath/ClipPath.dart';
 import 'CustomPaint/CustomPaint.dart';
 import 'ElevatedButton/ElevatedButton.dart';
-import 'Hero/Hero.dart';
 import 'Image/CachedNetworkImage.dart';
 import 'Image/Image.dart';
 import 'MediaQuery/MediaQuery.dart';
@@ -410,13 +409,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void _openHeroPage(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const HeroPage()),
-    );
-  }
-
   void _openTweenAnimationBuilderPage(BuildContext context) {
     Navigator.push(
       context,
@@ -642,10 +634,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ElevatedButton(
                       onPressed: () => _openAnimatedOpacityPage(context),
                       child: const Text('Open AnimatedOpacity Page'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () => _openHeroPage(context),
-                      child: const Text('Open Hero Page'),
                     ),
                     ElevatedButton(
                       onPressed: () => _openTweenAnimationBuilderPage(context),
