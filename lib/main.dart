@@ -12,6 +12,7 @@ import 'package:example_collections/Dismissible/Dismissible.dart';
 import 'package:example_collections/Drawer/Drawer.dart';
 import 'package:example_collections/Expanded/Expanded.dart';
 import 'package:example_collections/FloatingActionButton/FloatingActionButton.dart';
+import 'package:example_collections/Flow/Flow.dart';
 import 'package:example_collections/GestureDetector/GestureDetector.dart';
 import 'package:example_collections/GridView/GridView.dart';
 import 'package:example_collections/Icon/Icon.dart';
@@ -21,6 +22,7 @@ import 'package:example_collections/ListTile/ListTile.dart';
 import 'package:example_collections/ListView/ListView.dart';
 import 'package:example_collections/Radio/Radio.dart';
 import 'package:example_collections/Row/Row.dart';
+import 'package:example_collections/SelectableText/SelectableText.dart';
 import 'package:example_collections/SizedBox/SizedBox.dart';
 import 'package:example_collections/SnackBar/SnackBar.dart';
 import 'package:example_collections/Stack/Stack.dart';
@@ -35,14 +37,14 @@ import 'package:example_collections/showDatePicker/showDatePicker.dart';
 import 'package:example_collections/showModalBottomSheet/showModalBottomSheet.dart';
 import 'package:example_collections/showTimePicker/showTimePicker.dart';
 import 'package:flutter/material.dart';
-
 import 'ClipPath/ClipPath.dart';
 import 'CustomPaint/CustomPaint.dart';
 import 'ElevatedButton/ElevatedButton.dart';
 import 'Hero/Hero.dart';
-import 'Image/NetworkImage.dart';
+import 'Image/CachedNetworkImage.dart';
 import 'Image/Image.dart';
 import 'MediaQuery/MediaQuery.dart';
+import 'RichText/RichText.dart';
 import 'SimpleDialog/SimpleDialog.dart';
 import 'SingleChildScrollView/SingleChildScrollView.dart';
 import 'Slider/Slider.dart';
@@ -82,7 +84,27 @@ class _MyHomePageState extends State<MyHomePage> {
   void _openTextPage(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const TextPage()),
+      MaterialPageRoute(
+          builder: (context) => TextPage(
+                text: 'Example Text',
+                onTextChange: (String newText) {
+                  debugPrint('Text changed: $newText');
+                },
+              )),
+    );
+  }
+
+  void _openRichTextPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const RichTextPage()),
+    );
+  }
+
+  void _openSelectableTextPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const SelectableTextPage()),
     );
   }
 
@@ -96,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _openNetworkImagePage(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const NetworkImagePage()),
+      MaterialPageRoute(builder: (context) => const CachedNetworkImagePage()),
     );
   }
 
@@ -417,6 +439,13 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  void _openFlowPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const FlowPage()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -435,12 +464,20 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: const Text('Open Text Page'),
                     ),
                     ElevatedButton(
+                      onPressed: () => _openRichTextPage(context),
+                      child: const Text('Open Rich Text Page'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () => _openSelectableTextPage(context),
+                      child: const Text('Open Selectable Text Page'),
+                    ),
+                    ElevatedButton(
                       onPressed: () => _openImagePage(context),
                       child: const Text('Open Image Page'),
                     ),
                     ElevatedButton(
                       onPressed: () => _openNetworkImagePage(context),
-                      child: const Text('Open Network Image Page'),
+                      child: const Text('Open Cached Network Image Page'),
                     ),
                     ElevatedButton(
                       onPressed: () => _openIconPage(context),
@@ -621,6 +658,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     ElevatedButton(
                       onPressed: () => _openClipPathPage(context),
                       child: const Text('Open ClipPath Page'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () => _openFlowPage(context),
+                      child: const Text('Open Flow Page'),
                     ),
                   ],
                 ),

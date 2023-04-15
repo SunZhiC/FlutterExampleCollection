@@ -38,14 +38,14 @@ class ListViewPageState extends State<ListViewPage> {
             //     return const Divider();
             //   },
             // )
-            //     ListView(
-            //   scrollDirection: Axis.horizontal,
-            //   children: <Widget>[
-            //     Container(width: 200, color: Colors.red),
-            //     Container(width: 200, color: Colors.blue),
-            //     Container(width: 200, color: Colors.green),
-            //   ],
-            // )
+                ListView(
+              scrollDirection: Axis.horizontal,
+              children: <Widget>[
+                Container(width: 200, color: Colors.red),
+                Container(width: 200, color: Colors.blue),
+                Container(width: 200, color: Colors.green),
+              ],
+            )
             //     ListView(
             //   padding: const EdgeInsets.all(16),
             //   children: const <Widget>[
@@ -54,12 +54,13 @@ class ListViewPageState extends State<ListViewPage> {
             //     ListTile(title: Text('Item 3')),
             //   ],
             // )
-            ListView.builder(
-          physics: const BouncingScrollPhysics(),
-          itemCount: 50,
-          itemBuilder: (BuildContext context, int index) {
-            return ListTile(title: Text('Item ${index + 1}'));
-          },
-        ));
+        //     ListView.builder(
+        //   physics: const BouncingScrollPhysics(),
+        //   itemCount: 50,
+        //   itemBuilder: (BuildContext context, int index) {
+        //     return ListTile(title: Text('Item ${index + 1}'));
+        //   },
+        // )
+        );
   }
 }

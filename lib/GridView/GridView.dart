@@ -18,16 +18,16 @@ class GridViewPageState extends State<GridViewPage> {
             "${runtimeType.toString().substring(0, runtimeType.toString().length - 9)} Example"),
       ),
       body:
-          // GridView(
-          //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          //       crossAxisCount: 2),
-          //   children: <Widget>[
-          //     Container(color: Colors.red),
-          //     Container(color: Colors.blue),
-          //     Container(color: Colors.green),
-          //     Container(color: Colors.yellow),
-          //   ],
-          // ),
+          GridView(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2),
+            children: <Widget>[
+              Container(color: Colors.red),
+              Container(color: Colors.blue),
+              Container(color: Colors.green),
+              Container(color: Colors.yellow),
+            ],
+          ),
           // GridView.builder(
           //   itemCount: 20,
           //   gridDelegate:
@@ -67,17 +67,22 @@ class GridViewPageState extends State<GridViewPage> {
           //     Container(color: Colors.green),
           //     Container(color: Colors.yellow),
           //   ],
-          // )
-          GridView.builder(
-        physics: const BouncingScrollPhysics(),
-        itemCount: 21,
-        gridDelegate:
-            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-              color: Colors.primaries[index % Colors.primaries.length]);
-        },
-      ),
+          // ),
+          // GridView.builder(
+      //   physics: const BouncingScrollPhysics(),
+      //   itemCount: 21,
+      //   gridDelegate:
+      //       const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+      //   itemBuilder: (BuildContext context, int index) {
+      //     return Stack(
+      //         children: [
+      //           Container(
+      //         color: Colors.primaries[index % Colors.primaries.length]),
+      //           Text('Item ${index + 1}')
+      //         ],
+      //       );
+      //   },
+      // ),
     );
   }
 }
